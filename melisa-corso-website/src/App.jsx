@@ -1,10 +1,6 @@
 import React from 'react';
 import './index.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faWhatsapp, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-
-
 import NavbarComponent from './components/NavbarComponent';
 import HeroSection from './components/HeroSection';
 import ServicesSection from './components/ServicesSection';
@@ -17,10 +13,11 @@ function App() {
     <div className="App">
       <NavbarComponent />
 
-      {/* Home Page */}
+      {/* Home Page: Use hero-desktop for main and hero-mobile for mobile */}
       <HeroSection
         id="home"
-        backgroundImage="/images/hero-desktop.jpg" // RE-ADDED: Pointing to desktop image
+        desktopImage="/images/hero-desktop.jpg"
+        mobileImage="/images/hero-mobile.jpg" // Specific mobile image for Home
       >
         <h1><img src="/images/logo.png" alt="f-hole round violin logo" /></h1>
         <h1>Melisa Corso</h1>
@@ -30,8 +27,12 @@ function App() {
       {/* Services Page */}
       <ServicesSection id="services" />
 
-      {/* Hero Space 1 */}
-      <HeroSection className="hero-space" backgroundImage="/images/hero-desktop.jpg" /> {/* RE-ADDED */}
+      {/* Hero Space 1: Example - using different images for this parallax section */}
+      <HeroSection
+        className="hero-space"
+        desktopImage="/images/hero-desktop.jpg" // Can be a different image
+        mobileImage="/images/hero-mobile.jpg" // Can be a different mobile image
+      />
 
       {/* About Page */}
       <AboutSection id="about" />
@@ -39,14 +40,22 @@ function App() {
       {/* Testimonials Section */}
       <TestimonialsSection id="testimonials" />
 
-      {/* Hero Space 2 */}
-      <HeroSection className="hero-space" backgroundImage="/images/hero-desktop.jpg" /> {/* RE-ADDED */}
+      {/* Hero Space 2: Example - using different images for this parallax section */}
+      <HeroSection
+        className="hero-space"
+        desktopImage="/images/hero-desktop.jpg" // Can be a different image
+        mobileImage="/images/hero-mobile.jpg" // Can be a different mobile image
+      />
 
       {/* Contact Page */}
       <ContactSection id="contact" />
 
-      {/* Footer */}
-      <HeroSection className="hero-section hero-large" backgroundImage="/images/hero-desktop.jpg"> {/* RE-ADDED */}
+      {/* Footer: Example - using specific images for the footer parallax section */}
+      <HeroSection
+        className="hero-section hero-large"
+        desktopImage="/images/hero-desktop.jpg" // Can be a different image
+        mobileImage="/images/hero-mobile.jpg" // Can be a different mobile image
+      >
         <a href="#home">
           <img src="/images/logo.png" alt="f-hole round violin logo" style={{ height: '80px', marginBottom: '20px' }} />
         </a>
