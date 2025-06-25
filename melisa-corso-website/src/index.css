@@ -11,6 +11,7 @@ body {
     color: #333;
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scroll due to parallax */
+    background-color: #fff; /* Default fallback for body background */
 }
 
 /* Basic Layout and Section Styling for content blocks */
@@ -19,80 +20,82 @@ body {
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #fff; /* Light background for content sections */
+    background-color: #f8f8f8; /* This is the light background for general content areas */
+    z-index: 2; /* Ensure content sections are above parallax backgrounds */
+    position: relative; /* Needed for z-index to work */
 }
 
 .content-block {
     padding: 20px;
-    background-color: #fff;
+    background-color: #fff; /* White background for individual content cards within sections */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Navbar styles */
 .navbar {
-    background-color: #fff;
+    background-color: #333;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    top: 0; /* Ensure fixed position is honored */
-    width: 100%; /* Ensure it spans full width */
-    z-index: 1000; /* Keep it on top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Keep navbar on top of everything */
 }
 
 .navbar-brand img {
-    height: 40px; /* Adjust logo size */
+    height: 40px;
     vertical-align: middle;
 }
 
 .navbar-nav .nav-link {
-    color: #333 !important; /* Override Bootstrap default */
+    color: #fff !important; /* Override Bootstrap default link color */
+    text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #f0a500 !important; /* A nice highlight color */
+    color: #f0a500 !important; /* Accent color on hover */
 }
 
 .site-title-nav {
-    color: #000;
+    color: #fff;
     font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-decoration: none; /* Make it a link */
-    padding: 0.5rem 1rem; /* Match nav-link padding */
-    display: none; /* Hidden by default, shown on larger screens */
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: none; /* Hidden by default, shown on larger screens via media query */
 }
 
 
-/* Hero Sections (for Parallax) */
+/* Hero Sections (for Parallax Effect) */
 .hero-section {
-    min-height: 100vh; /* Full viewport height for main hero */
+    min-height: 100vh; /* Full viewport height for main hero section */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    background-size: cover; /* Still useful for how the gradient fills the space */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Keep this for the parallax effect! */
+    background-size: cover; /* Image covers the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* This creates the parallax effect! */
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Ensure parallax layers are below content sections */
 
-    /* NEW: Navy Blue Gradient Background */
-    background: linear-gradient(135deg, #000080, #191970); /* A gradient from a darker navy to a slightly lighter one */
-    /* You can experiment with different colors and directions:
-       e.g., background: linear-gradient(to right, #000080, #4169E1); */
+    /* Default background image for larger screens / landscape orientation */
+    background-image: url('/images/hero-desktop.jpg');
 }
 
+/* Adjustments for intermediary hero space sections */
 .hero-section.hero-space {
     min-height: 50vh; /* Half viewport height for separation */
 }
 
-/* Adjustments for Home Section Text and Logo */
+/* Adjustments for Home Section Text and Logo sizing within hero sections */
 .hero-section h1 {
     font-size: 3em;
     margin-bottom: 10px;
@@ -108,14 +111,14 @@ body {
     font-weight: normal;
 }
 
-/* Push content down to avoid being hidden by fixed navbar */
+/* Push content down to avoid being hidden by the fixed navbar */
 body::before {
     content: '';
     display: block;
-    height: 70px; /* Adjust based on your navbar height */
+    height: 70px; /* Adjust based on your navbar's height */
 }
 
-/* Services Section */
+/* Services Section Styling */
 #services h2, #services h3 {
     color: #555;
     margin-bottom: 15px;
@@ -158,15 +161,15 @@ table thead {
     color: #fff;
 }
 
-/* About Section */
+/* About Section Styling */
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio for responsive video */
     height: 0;
     overflow: hidden;
     margin-top: 20px;
-    background-color: #000; /* Placeholder background */
+    background-color: #000; /* Placeholder background for video area */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -180,7 +183,7 @@ table thead {
     border: 0;
 }
 
-/* Contact Section */
+/* Contact Section Styling */
 .flags {
     display: flex;
     justify-content: center;
@@ -206,13 +209,13 @@ table thead {
     font-size: 0.9em;
 }
 
-/* Form Styling - Bootstrap's Form components will handle most of this */
+/* Form Styling (leveraging Bootstrap's Form components) */
 .contact-form-container form {
     margin-top: 20px;
     text-align: left;
 }
 
-.contact-form-container .btn { /* Styling for Bootstrap buttons */
+.contact-form-container .btn {
     background-color: #f0a500;
     color: #fff;
     padding: 12px 25px;
@@ -228,14 +231,13 @@ table thead {
     background-color: #d18f00;
 }
 
-/* Footer Section */
+/* Footer Section Styling */
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
     text-align: center;
-    text-shadow: 4px 2px 4px rgba(0,0,0,0.9);
 }
 
 .social-icons {
@@ -243,7 +245,8 @@ table thead {
 }
 
 .social-icons a {
-    font-size: 1em; /* Adjust icon size */
+    color: #fff;
+    font-size: 1.8em; /* Adjust icon size */
     margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -253,40 +256,9 @@ table thead {
     color: #f0a500;
 }
 
-/* Responsive Design - Media Queries */
-
-/* Tablet and larger screens */
-@media (min-width: 768px) {
-    .site-title-nav {
-        display: block; /* Show site title in nav on larger screens */
-    }
-
-    /* Adjust navbar spacing on larger screens if needed */
-    .navbar .container-fluid {
-        justify-content: space-between;
-    }
-
-    .content-section .row > .col-md-6 {
-      flex: 0 0 auto; /* Reset flex-grow to auto */
-      width: calc(50% - 20px); /* Specific width calculation for two columns with gap */
-    }
-}
-
-/* Desktop and larger screens */
-@media (min-width: 1024px) {
-    .hero-section h1 {
-        font-size: 4em;
-    }
-
-    .hero-section h4 {
-        font-size: 1.8em;
-    }
-}
-
-
 /* Testimonials Section Specific Styles */
 .testimonials-section {
-    background-color: #fff; /* Light background for contrast */
+    background-color: #e6e6e6; /* A slightly darker background to make it stand out */
     padding-top: 80px;
     padding-bottom: 80px;
 }
@@ -313,19 +285,19 @@ table thead {
 }
 
 .card-img-wrapper {
-    width: 120px; /* Desired size for the circular image */
+    width: 120px;
     height: 120px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 20px auto; /* Center the image and add bottom margin */
-    border: 4px solid #f0a500; /* Border color for accent */
+    margin: 0 auto 20px auto;
+    border: 4px solid #f0a500;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .testimonial-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    object-fit: cover;
 }
 
 .comment-text {
@@ -342,13 +314,51 @@ table thead {
     margin-top: 15px;
 }
 
-/* Ensure Font Awesome brand icons are styled similarly to other icons */
+/* Ensure Font Awesome brand icons are styled consistently */
 .social-icons a .svg-inline--fa {
-    font-size: 1.8em; /* Ensure consistent icon sizing */
-    color: #333; /* Default color for footer icons */
+    font-size: 1.8em;
+    color: #fff;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover .svg-inline--fa {
-    color: #f0a500; /* Hover color */
+    color: #f0a500;
+}
+
+/* Responsive Design - Media Queries */
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .site-title-nav {
+        display: block; /* Show site title in navigation */
+    }
+
+    .navbar .container-fluid {
+        justify-content: space-between; /* Distribute nav items */
+    }
+
+    /* Content blocks side-by-side on larger screens */
+    .content-section .row > .col-md-6 {
+      flex: 0 0 auto; /* Reset flex-grow for precise width control */
+      width: calc(50% - 20px); /* Two columns with a gap of 40px (20px each side) */
+    }
+}
+
+/* Mobile (Vertical Display) - Target screens smaller than 768px (portrait orientation common here) */
+@media (max-width: 767.98px) {
+    .hero-section {
+        background-image: url('/images/hero-mobile.jpg'); /* Mobile specific image */
+        background-position: center top; /* Often better for portrait images to show top part */
+    }
+}
+
+/* Desktop and larger screens */
+@media (min-width: 1024px) {
+    .hero-section h1 {
+        font-size: 4em; /* Larger title on large screens */
+    }
+
+    .hero-section h4 {
+        font-size: 1.8em; /* Larger subtitle on large screens */
+    }
 }
