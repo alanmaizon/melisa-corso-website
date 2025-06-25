@@ -75,15 +75,17 @@ body {
     align-items: center;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    background-size: cover;
+    background-size: cover; /* Still useful for how the gradient fills the space */
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* This is the parallax magic */
+    background-attachment: fixed; /* Keep this for the parallax effect! */
     position: relative;
     z-index: 1;
 
-    /* Default background for larger screens / landscape orientation */
-    background-image: url('/images/hero-desktop.jpg'); /* NEW: Default desktop image */
+    /* NEW: Navy Blue Gradient Background */
+    background: linear-gradient(135deg, #000080, #191970); /* A gradient from a darker navy to a slightly lighter one */
+    /* You can experiment with different colors and directions:
+       e.g., background: linear-gradient(to right, #000080, #4169E1); */
 }
 
 .hero-section.hero-space {
@@ -267,15 +269,6 @@ table thead {
     .content-section .row > .col-md-6 {
       flex: 0 0 auto; /* Reset flex-grow to auto */
       width: calc(50% - 20px); /* Specific width calculation for two columns with gap */
-    }
-}
-
-
-/* Mobile (Vertical Display) - Target screens smaller than 768px */
-@media (max-width: 767.98px) {
-    .hero-section {
-        background-image: url('/images/hero-mobile.jpg'); /* NEW: Mobile specific image */
-        background-position: center top; /* Often better for portrait images */
     }
 }
 
