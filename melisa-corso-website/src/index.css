@@ -101,7 +101,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay (40% opacity) */
+    background: linear-gradient(135deg, rgba(255, 94, 180, 0.7) 0%, rgb(247, 148, 0) 100%);
     z-index: -1; /* Place behind hero content, but above the fixed background image */
 }
 
@@ -179,6 +179,7 @@ body::before {
     margin-bottom: 8px;
     border-radius: 4px;
     font-weight: 600;
+    width: 340px;
 }
 
 table {
@@ -353,8 +354,8 @@ table thead {
 
 /* Ensure Font Awesome brand icons are styled consistently */
 .social-icons a .svg-inline--fa {
-    font-size: 1.8em;
-    color: #fff;
+    font-size: 1em;
+    color: #333;
     transition: color 0.3s ease;
 }
 

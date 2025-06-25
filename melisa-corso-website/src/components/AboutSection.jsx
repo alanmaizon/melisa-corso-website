@@ -10,7 +10,7 @@ const AboutSection = ({ id }) => {
             <h2>I'm here to enhance your music</h2>
             <p>My violin playing adds a touch of elegance and sophistication to any celebration,
             whether you need a solo violinist or a full ensemble.</p>
-            <h3>Elevate your special occasion with live violin music</h3>
+            <h3>Elevate your special occasion</h3>
             <div className="service-list-boxes">
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <li style={{ border: "1px solid #ddd", borderRadius: "8px", padding: "1rem", background: "#fafafa", boxShadow: "0 2px 8px rgba(0,0,0,0.03)" }}>Traditional Duo</li>
