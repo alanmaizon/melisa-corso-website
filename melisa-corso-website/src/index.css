@@ -81,6 +81,9 @@ body {
     background-attachment: fixed; /* This is the parallax magic */
     position: relative;
     z-index: 1;
+
+    /* Default background for larger screens / landscape orientation */
+    background-image: url('/images/hero-desktop.jpg'); /* NEW: Default desktop image */
 }
 
 .hero-section.hero-space {
@@ -264,6 +267,15 @@ table thead {
     .content-section .row > .col-md-6 {
       flex: 0 0 auto; /* Reset flex-grow to auto */
       width: calc(50% - 20px); /* Specific width calculation for two columns with gap */
+    }
+}
+
+
+/* Mobile (Vertical Display) - Target screens smaller than 768px */
+@media (max-width: 767.98px) {
+    .hero-section {
+        background-image: url('/images/hero-mobile.jpg'); /* NEW: Mobile specific image */
+        background-position: center top; /* Often better for portrait images */
     }
 }
 
