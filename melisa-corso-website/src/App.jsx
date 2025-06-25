@@ -44,7 +44,7 @@ function App() {
           <img src="/images/logo.png" alt="f-hole round violin logo" style={{ height: '80px', marginBottom: '20px' }} />
         </a>
         <div className="footer-content">
-          <small>Melisa Corso 2024 © All rights reserved</small>
+          <small>Melisa Corso 2025 © All rights reserved</small>
         </div>
       </HeroSection>
     </div>
