@@ -13,11 +13,10 @@ function App() {
     <div className="App">
       <NavbarComponent />
 
-      {/* Home Page: Use hero-desktop for main and hero-mobile for mobile */}
+      {/* Home Page */}
       <HeroSection
         id="home"
-        desktopImage="/images/hero-desktop.jpg"
-        mobileImage="/images/hero-mobile.jpg" // Specific mobile image for Home
+        // desktopImage and mobileImage props removed
       >
         <h1><img src="/images/logo.png" alt="f-hole round violin logo" /></h1>
         <h1>Melisa Corso</h1>
@@ -27,34 +26,19 @@ function App() {
       {/* Services Page */}
       <ServicesSection id="services" />
 
-      {/* Hero Space 1: Example - using different images for this parallax section */}
-      <HeroSection
-        className="hero-space"
-        desktopImage="/images/hero-desktop.jpg" // Can be a different image
-        mobileImage="/images/hero-mobile.jpg" // Can be a different mobile image
-      />
-
       {/* About Page */}
       <AboutSection id="about" />
 
       {/* Testimonials Section */}
       <TestimonialsSection id="testimonials" />
 
-      {/* Hero Space 2: Example - using different images for this parallax section */}
-      <HeroSection
-        className="hero-space"
-        desktopImage="/images/hero-desktop.jpg" // Can be a different image
-        mobileImage="/images/hero-mobile.jpg" // Can be a different mobile image
-      />
-
       {/* Contact Page */}
       <ContactSection id="contact" />
 
-      {/* Footer: Example - using specific images for the footer parallax section */}
+      {/* Footer */}
       <HeroSection
         className="hero-section hero-large"
-        desktopImage="/images/hero-desktop.jpg" // Can be a different image
-        mobileImage="/images/hero-mobile.jpg" // Can be a different mobile image
+        // desktopImage and mobileImage props removed
       >
         <a href="#home">
           <img src="/images/logo.png" alt="f-hole round violin logo" style={{ height: '80px', marginBottom: '20px' }} />
