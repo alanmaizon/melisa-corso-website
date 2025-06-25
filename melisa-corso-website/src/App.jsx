@@ -1,8 +1,12 @@
 import React from 'react';
 import './index.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faInstagram, faWhatsapp, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+
+
 import NavbarComponent from './components/NavbarComponent';
-import HeroSection from './components/HeroSection';
+import HeroSection from './components/HeroSection'; // This component will now receive the backgroundImage prop
 import ServicesSection from './components/ServicesSection';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
@@ -13,10 +17,10 @@ function App() {
     <div className="App">
       <NavbarComponent />
 
-      {/* Home Page */}
+      {/* Home Page: Using hero-desktop for main parallax, mobile handled by CSS media query in index.css */}
       <HeroSection
         id="home"
-        // desktopImage and mobileImage props removed
+        backgroundImage="/images/hero-desktop.jpg"
       >
         <h1><img src="/images/logo.png" alt="f-hole round violin logo" /></h1>
         <h1>Melisa Corso</h1>
@@ -38,7 +42,7 @@ function App() {
       {/* Footer */}
       <HeroSection
         className="hero-section hero-large"
-        // desktopImage and mobileImage props removed
+        backgroundImage="/images/hero-desktop.jpg" // Example: use the same desktop image for all parallax sections
       >
         <a href="#home">
           <img src="/images/logo.png" alt="f-hole round violin logo" style={{ height: '80px', marginBottom: '20px' }} />
