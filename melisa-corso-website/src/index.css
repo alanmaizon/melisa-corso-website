@@ -93,7 +93,7 @@ body {
     /* Layer 2: The solid red background color */
     background:
         url('/images/Heading.png') bottom center no-repeat, /* The Heading image */
-        #FF0000; /* The solid red color */
+        #fffffe; /* The solid red color */
     
     /* Apply background-size and background-attachment to all layers explicitly */
     background-size: 100% auto, cover; /* Heading.png covers 100% width, auto height. Red covers the rest. */
@@ -168,12 +168,12 @@ body::before {
     margin-bottom: 15px;
 }
 
-#services p {
+#services p { /* Ensure p tags are styled for consistency */
     font-size: 1.1em;
     margin-bottom: 20px;
 }
 
-#services ul {
+#services ul { /* Existing base ul styles */
     list-style: none;
     padding: 0;
     margin-top: 20px;
@@ -211,6 +211,7 @@ table thead {
     background-color: #f0a500;
     color: #fff;
 }
+
 
 /* About Section Styling */
 .video-container {
