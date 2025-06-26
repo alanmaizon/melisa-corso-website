@@ -176,7 +176,6 @@ body::before {
 .services-list {
     max-width: 90%; /* Make the list itself take up 90% of its parent column */
     margin: 0 auto; /* Center the block-level list horizontally within its column */
-    text-align: left; /* Keep list item text left-aligned, overriding the parent column's text-center */
 }
 
 /* Existing li styles already create the "boxes" */
@@ -186,6 +185,7 @@ body::before {
     margin-bottom: 8px;
     border-radius: 4px;
     font-weight: 600;
+    text-align: center;
 }
 
 table {
