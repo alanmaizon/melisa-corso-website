@@ -1,12 +1,8 @@
 import React from 'react';
 import './index.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faWhatsapp, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-
-
 import NavbarComponent from './components/NavbarComponent';
-import HeroSection from './components/HeroSection'; // This component will now receive the backgroundImage prop
+import HeroSection from './components/HeroSection';
 import ServicesSection from './components/ServicesSection';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
@@ -17,10 +13,10 @@ function App() {
     <div className="App">
       <NavbarComponent />
 
-      {/* Home Page: Using hero-desktop for main parallax, mobile handled by CSS media query in index.css */}
+      {/* Home Page: Background now managed purely by index.css */}
       <HeroSection
         id="home"
-        backgroundImage="/images/hero-desktop.jpg"
+        // backgroundImage prop removed
       >
         <h1><img src="/images/logo.png" alt="f-hole round violin logo" /></h1>
         <h1>Melisa Corso</h1>
@@ -30,11 +26,23 @@ function App() {
       {/* Services Page */}
       <ServicesSection id="services" />
 
+      {/* Hero Space 1 */}
+      <HeroSection
+        className="hero-space"
+        // backgroundImage prop removed
+      />
+
       {/* About Page */}
       <AboutSection id="about" />
 
       {/* Testimonials Section */}
       <TestimonialsSection id="testimonials" />
+
+      {/* Hero Space 2 */}
+      <HeroSection
+        className="hero-space"
+        // backgroundImage prop removed
+      />
 
       {/* Contact Page */}
       <ContactSection id="contact" />
@@ -42,7 +50,7 @@ function App() {
       {/* Footer */}
       <HeroSection
         className="hero-section hero-large"
-        backgroundImage="/images/hero-desktop.jpg" // Example: use the same desktop image for all parallax sections
+        // backgroundImage prop removed
       >
         <a href="#home">
           <img src="/images/logo.png" alt="f-hole round violin logo" style={{ height: '80px', marginBottom: '20px' }} />

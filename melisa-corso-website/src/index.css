@@ -82,18 +82,25 @@ body {
     align-items: center;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    background-size: cover; /* Image covers the entire section */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* This will now primarily apply to the overall background composite */
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed; /* This creates the parallax effect! */
-    position: relative; /* Needed for child elements, like the overlay, to position correctly */
+    position: relative;
     z-index: 1; /* Ensure parallax layers are below content sections */
 
-    /* Default background image for larger screens / landscape orientation */
-    background-image: url('/images/hero-desktop.jpg');
+    /* Layer 1: Heading.png positioned at the bottom, not repeating */
+    /* Layer 2: The solid red background color */
+    background:
+        url('/images/Heading.png') bottom center no-repeat, /* The Heading image */
+        #FF0000; /* The solid red color */
+    
+    /* Apply background-size and background-attachment to all layers explicitly */
+    background-size: 100% auto, cover; /* Heading.png covers 100% width, auto height. Red covers the rest. */
+    background-attachment: fixed, fixed; /* Both backgrounds should be fixed for parallax */
 }
 
-/* NEW: Overlay for Hero Sections */
+/* Overlay for Hero Sections */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -101,7 +108,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 94, 180, 0.7) 0%, rgb(247, 148, 0) 100%);
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay (40% opacity) */
     z-index: -1; /* Place behind hero content, but above the fixed background image */
 }
 
@@ -126,7 +133,7 @@ body {
     font-weight: normal;
 }
 
-/* NEW: Animations for Home Section Text */
+/* Animations for Home Section Text */
 @keyframes fadeInSlideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -170,16 +177,22 @@ body::before {
     list-style: none;
     padding: 0;
     margin-top: 20px;
-    text-align: left; /* Align list items left */
 }
 
+/* Styles for the specific services list (90% width, centered) */
+.services-list {
+    max-width: 90%; /* Make the list itself take up 90% of its parent column */
+    margin: 0 auto; /* Center the block-level list horizontally within its column */
+}
+
+/* List item styles (the "boxes" for services) */
 #services ul li {
     background-color: #e0e0e0;
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 4px;
     font-weight: 600;
-    width: 340px;
+    text-align: center; /* Center the text within each list item */
 }
 
 table {
@@ -354,8 +367,8 @@ table thead {
 
 /* Ensure Font Awesome brand icons are styled consistently */
 .social-icons a .svg-inline--fa {
-    font-size: 1em;
-    color: #333;
+    font-size: 1.8em;
+    color: #fff;
     transition: color 0.3s ease;
 }
 
@@ -382,15 +395,39 @@ table thead {
     }
 }
 
-/* Mobile (Vertical Display) - Target screens smaller than 768px (portrait orientation common here) */
-@media (max-width: 767.98px) {
+/* IMPORTANT: This entire media query block is removed. */
+/* @media (max-width: 767.98px) {
     .hero-section {
-        background-image: url('/images/hero-mobile.jpg'); /* Mobile specific image */
-        background-position: center top; /* Often better for portrait images to show top part */
+        background-image: url('/images/hero-mobile.jpg');
+        background-position: center top;
+        background-size: cover;
+        background-attachment: fixed;
     }
-}
+    .hero-section {
+        background-repeat: no-repeat;
+    }
+    .hero-section.hero-space {
+        background-size: cover;
+    }
+    .hero-section {
+        background-size: 100% auto, cover;
+    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    .hero-section h1 img {
+        height: 60px;
+    }
+    .hero-section h4 {
+        font-size: 1.2em;
+    }
+    #services ul li {
+        width: 100%;
+    }
+} */
 
-/* Desktop and larger screens */
+
+/* Desktop and larger screens (These will now be the only responsive adjustments for hero section font sizes) */
 @media (min-width: 1024px) {
     .hero-section h1 {
         font-size: 4em; /* Larger title on large screens */
