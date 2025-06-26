@@ -161,25 +161,31 @@ body::before {
     margin-bottom: 15px;
 }
 
-#services p {
+#services p { /* Ensure p tags are styled for consistency */
     font-size: 1.1em;
     margin-bottom: 20px;
 }
 
-#services ul {
+#services ul { /* Existing base ul styles */
     list-style: none;
     padding: 0;
     margin-top: 20px;
-    text-align: left; /* Align list items left */
 }
 
+/* NEW: Styles for the specific services list */
+.services-list {
+    max-width: 90%; /* Make the list itself take up 90% of its parent column */
+    margin: 0 auto; /* Center the block-level list horizontally within its column */
+    text-align: left; /* Keep list item text left-aligned, overriding the parent column's text-center */
+}
+
+/* Existing li styles already create the "boxes" */
 #services ul li {
     background-color: #e0e0e0;
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 4px;
     font-weight: 600;
-    width: 340px;
 }
 
 table {
@@ -198,6 +204,7 @@ table thead {
     background-color: #f0a500;
     color: #fff;
 }
+
 
 /* About Section Styling */
 .video-container {
